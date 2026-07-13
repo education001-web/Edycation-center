@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Education Center | المجد &amp; أجيال</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3067/3067216.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
     <style>
@@ -172,7 +173,7 @@
             background: linear-gradient(135deg, #08213b, #1a4a7a);
             padding: 2rem 2.8rem;
             border-radius: 50px 50px 50px 18px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             box-shadow: 0 18px 40px rgba(0, 20, 50, 0.35);
             display: flex;
             flex-wrap: wrap;
@@ -217,7 +218,6 @@
             display: flex;
             gap: 25px;
             flex-wrap: wrap;
-            align-items: center;
         }
 
         .header-hero .stats span {
@@ -235,168 +235,67 @@
             margin-left: 8px;
         }
 
-        /* =====  زر تسجيل الدخول ===== */
-        .login-btn-header {
-            background: linear-gradient(135deg, #f5b042, #e0952a);
-            border: none;
-            color: #0b2b5c;
-            font-weight: 800;
-            padding: 0.6rem 1.8rem;
-            border-radius: 60px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.25s;
-            font-family: 'Tajawal', sans-serif;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(245, 176, 66, 0.3);
-        }
-
-        .login-btn-header:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(245, 176, 66, 0.5);
-        }
-
-        /* =====  نافذة تسجيل الدخول ===== */
-        .login-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(2, 15, 35, 0.85);
-            backdrop-filter: blur(10px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 100000;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .login-overlay.show {
-            display: flex;
-        }
-
-        .login-card {
-            background: linear-gradient(145deg, #ffffff, #f5f9ff);
-            max-width: 480px;
-            width: 92%;
-            padding: 2.8rem 2.5rem;
-            border-radius: 50px 50px 50px 15px;
-            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .login-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(245, 176, 66, 0.05), transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .login-card .close-login {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            font-size: 1.8rem;
-            color: #4a6a8a;
-            cursor: pointer;
-            transition: 0.2s;
-            background: none;
-            border: none;
-        }
-
-        .login-card .close-login:hover {
-            transform: rotate(90deg);
-            color: #0b2b5c;
-        }
-
-        .login-card h3 {
-            font-size: 2rem;
-            font-weight: 900;
-            color: #0b2b5c;
-            text-align: center;
-            margin-bottom: 0.3rem;
-        }
-
-        .login-card .sub-login {
-            text-align: center;
-            color: #3a5a7a;
-            margin-bottom: 1.8rem;
-            font-size: 0.95rem;
-        }
-
-        .login-card .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .login-card .form-group label {
-            display: block;
-            font-weight: 700;
-            color: #0b2b5c;
-            margin-bottom: 0.3rem;
-            font-size: 0.95rem;
-        }
-
-        .login-card .form-group input {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 2px solid #dce5f0;
+        /* =====  تنبيه أعلى الصفحة ===== */
+        .alert-banner {
+            background: linear-gradient(135deg, #fef9e7, #fdebd0);
+            border-right: 6px solid #f5b042;
+            padding: 1rem 2rem;
             border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(245, 176, 66, 0.15);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .alert-banner .alert-icon {
+            font-size: 2rem;
+            color: #f5b042;
+        }
+
+        .alert-banner .alert-text {
+            flex: 1;
+            font-weight: 600;
+            color: #1f3f6b;
             font-size: 1rem;
-            font-family: 'Tajawal', sans-serif;
-            transition: 0.2s;
-            background: #f8faff;
+            line-height: 1.8;
         }
 
-        .login-card .form-group input:focus {
-            outline: none;
-            border-color: #f5b042;
-            box-shadow: 0 0 0 4px rgba(245, 176, 66, 0.15);
+        .alert-banner .alert-text strong {
+            color: #c0392b;
         }
 
-        .login-card .btn-login {
-            width: 100%;
-            background: linear-gradient(135deg, #1f5a9e, #0d3b6e);
-            border: none;
+        .alert-banner .alert-badge {
+            background: #c0392b;
             color: #fff;
-            font-size: 1.2rem;
-            font-weight: 800;
-            padding: 0.9rem;
+            padding: 0.3rem 1.5rem;
             border-radius: 60px;
-            cursor: pointer;
-            transition: 0.25s;
-            font-family: 'Tajawal', sans-serif;
-            box-shadow: 0 6px 20px rgba(20, 70, 150, 0.3);
-            margin-top: 0.5rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
         }
 
-        .login-card .btn-login:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(20, 70, 150, 0.4);
+        /* =====  تنبيه الجداول ===== */
+        .schedule-notice {
+            background: linear-gradient(135deg, #eaf4fe, #d4e4f7);
+            border-right: 6px solid #1f5a9e;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+            color: #0b2b5c;
+            font-size: 1rem;
         }
 
-        .login-card .btn-login i {
+        .schedule-notice i {
+            color: #f5b042;
             margin-left: 10px;
         }
 
-        .login-card .login-status {
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #1f5a9e;
-            font-weight: 500;
-        }
-
-        /* =====  القوائم ===== */
+        /* =====  القوائم الرئيسية ===== */
         .tabs-container {
             display: flex;
             flex-wrap: wrap;
@@ -440,7 +339,6 @@
             color: #f7d44a;
         }
 
-        /* =====  محتوى التاب ===== */
         .tab-content {
             display: none;
             animation: fadeIn 0.4s ease;
@@ -450,14 +348,7 @@
             display: block;
         }
 
-        /* =====  بطاقات المراكز ===== */
-        .centers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 35px;
-            margin: 20px 0 30px;
-        }
-
+        /* =====  بطاقات المراكز (المعلمين) ===== */
         .center-card {
             background: #ffffff;
             border-radius: 40px 40px 40px 12px;
@@ -467,6 +358,8 @@
             border: 1px solid rgba(0, 50, 120, 0.05);
             position: relative;
             overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .center-card:hover {
@@ -499,7 +392,6 @@
             font-size: 0.85rem;
         }
 
-        /* =====  قائمة المعلمين داخل البطاقة ===== */
         .teacher-subject {
             margin: 0.8rem 0;
             background: #f8faff;
@@ -544,7 +436,6 @@
             border-radius: 20px;
         }
 
-        /* =====  جهات الاتصال ===== */
         .contact-block {
             background: #eaf1fc;
             border-radius: 30px;
@@ -603,6 +494,217 @@
             opacity: 0.7;
         }
 
+        /* =====  طلبات المعلمين ===== */
+        .requests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .request-card {
+            background: #ffffff;
+            border-radius: 35px 35px 35px 12px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 8px 30px rgba(0, 20, 40, 0.06);
+            border: 1px solid rgba(0, 50, 120, 0.05);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .request-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(0, 30, 70, 0.1);
+            border-color: #c7d9f0;
+        }
+
+        .request-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f5ff;
+            padding-bottom: 0.7rem;
+        }
+
+        .request-card .card-header h4 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #0b2b5c;
+        }
+
+        .request-card .card-header .stage-badge {
+            background: #eef4fc;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1f5a9e;
+            font-size: 0.8rem;
+        }
+
+        .request-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0.8rem;
+            margin: 0.3rem 0;
+            background: #f8faff;
+            border-radius: 16px;
+            border-right: 3px solid #f5b042;
+            font-size: 0.95rem;
+        }
+
+        .request-item .subject {
+            font-weight: 700;
+            color: #0b2b5c;
+        }
+
+        .request-item .book {
+            color: #1f5a9e;
+            font-weight: 500;
+            font-size: 0.9rem;
+            background: #eaf1fc;
+            padding: 0 14px;
+            border-radius: 30px;
+        }
+
+        .request-item .book.not-set {
+            color: #c0392b;
+            background: #fde8e8;
+        }
+
+        .request-card .note-footer {
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: #2a6a9a;
+            font-size: 0.85rem;
+            background: #f0f6ff;
+            padding: 0.4rem;
+            border-radius: 30px;
+            border: 1px dashed #b2cbe5;
+        }
+
+        /* =====  الجداول ===== */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .schedule-col h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid;
+            padding-bottom: 0.3rem;
+        }
+
+        .schedule-col h4.majd-color {
+            color: #f5b042;
+            border-color: #f5b042;
+        }
+
+        .schedule-col h4.agyal-color {
+            color: #46a05c;
+            border-color: #46a05c;
+        }
+
+        .schedule-card {
+            background: #ffffff;
+            border-radius: 30px 30px 30px 10px;
+            padding: 1.5rem 1.5rem 1.8rem;
+            box-shadow: 0 8px 25px rgba(0, 20, 40, 0.05);
+            border: 1px solid rgba(0, 50, 120, 0.04);
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 30, 70, 0.08);
+        }
+
+        .schedule-card .sch-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            border-bottom: 2px solid #f0f5ff;
+            padding-bottom: 0.6rem;
+        }
+
+        .schedule-card .sch-header h5 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #0b2b5c;
+        }
+
+        .schedule-card .sch-header .grade-badge {
+            background: #eef4fc;
+            padding: 0.15rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1f5a9e;
+            font-size: 0.75rem;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.3rem 0.8rem;
+            margin: 0.2rem 0;
+            background: #f8faff;
+            border-radius: 14px;
+            border-right: 3px solid #f5b042;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .schedule-item .sch-subject {
+            font-weight: 700;
+            color: #0b2b5c;
+        }
+
+        .schedule-item .sch-teacher {
+            color: #2a5a7a;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .schedule-item .sch-time {
+            color: #1f5a9e;
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: #eaf1fc;
+            padding: 0 12px;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+
+        .schedule-item .sch-note {
+            color: #c0392b;
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: #fde8e8;
+            padding: 0 12px;
+            border-radius: 30px;
+        }
+
+        .schedule-card .sch-footer {
+            margin-top: 0.8rem;
+            text-align: center;
+            font-weight: 600;
+            color: #2a6a9a;
+            font-size: 0.8rem;
+            background: #f0f6ff;
+            padding: 0.3rem;
+            border-radius: 30px;
+            border: 1px dashed #b2cbe5;
+        }
+
         /* =====  أقسام إضافية ===== */
         .quick-grid {
             display: grid;
@@ -650,28 +752,13 @@
             margin: 0 6px;
         }
 
-        /* =====  رسالة النجاح ===== */
-        .toast-message {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #1f8b4c;
-            color: #fff;
-            padding: 1rem 2rem;
-            border-radius: 60px;
-            font-weight: 700;
-            box-shadow: 0 10px 30px rgba(31, 139, 76, 0.3);
-            z-index: 999999;
-            display: none;
-            animation: fadeIn 0.4s ease;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        .toast-message i {
-            margin-left: 10px;
-        }
-
         /* =====  استجابة ===== */
+        @media (max-width: 992px) {
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 700px) {
             .welcome-card {
                 padding: 2rem 1.5rem;
@@ -693,9 +780,15 @@
                 padding: 12px 16px;
             }
             .center-card {
-                padding: 1.5rem;
+                padding: 1.2rem;
             }
-            .centers-grid {
+            .request-card {
+                padding: 1.2rem;
+            }
+            .schedule-card {
+                padding: 1rem;
+            }
+            .requests-grid {
                 grid-template-columns: 1fr;
             }
             .tabs-container {
@@ -703,13 +796,19 @@
             }
             .tab-btn {
                 padding: 0.4rem 1.2rem;
-                font-size: 0.95rem;
+                font-size: 0.85rem;
             }
-            .login-card {
-                padding: 2rem 1.5rem;
+            .alert-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
             }
-            .login-card h3 {
-                font-size: 1.5rem;
+            .alert-banner .alert-badge {
+                white-space: normal;
+            }
+            .schedule-item {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.6rem;
             }
         }
     </style>
@@ -748,28 +847,45 @@
                 <span><i class="fas fa-users"></i> 2 مركز</span>
                 <span><i class="fas fa-book"></i> جميع المواد</span>
                 <span><i class="fas fa-star"></i> نخبة</span>
-                <button class="login-btn-header" id="openLoginBtn">
-                    <i class="fas fa-user-plus"></i> تسجيل الدخول
-                </button>
             </div>
         </div>
 
-        <!-- =====  القوائم ===== -->
+        <!-- =====  تنبيه أعلى الصفحة ===== -->
+        <div class="alert-banner">
+            <div class="alert-icon"><i class="fas fa-bullhorn"></i></div>
+            <div class="alert-text">
+                <strong>تنبيه هام:</strong> طلبات المعلمين خاصة بالعام الدراسي الجديد <strong>للترم الأول فقط</strong>، وقد لا تنطبق على الترم الثاني.
+                <span style="display:inline-block; margin-top:4px; color:#c0392b;">
+                    <i class="fas fa-info-circle"></i> لم يتم تحديد طلبات: العلوم المتكاملة (صف أول ثانوي)، الفيزياء (صف ثاني بكالوريا)، البرمجة (صف ثاني بكالوريا) في كلا المركزين.
+                </span>
+            </div>
+            <span class="alert-badge"><i class="fas fa-clock"></i> الترم الأول</span>
+        </div>
+
+        <!-- =====  تنبيه الجداول ===== -->
+        <div class="schedule-notice">
+            <i class="fas fa-sync-alt fa-spin"></i>
+            من الممكن تغيير بعض المواعيد في الجداول، لذلك فسيقوم المطور بتحديث الموقع بشكل مستمر.
+            <i class="fas fa-sync-alt fa-spin"></i>
+        </div>
+
+        <!-- =====  القوائم الرئيسية ===== -->
         <div class="tabs-container">
-            <button class="tab-btn active" data-tab="tabMajd"><i class="fas fa-crown"></i> مركز المجد</button>
-            <button class="tab-btn" data-tab="tabAgyal"><i class="fas fa-seedling"></i> مركز أجيال</button>
+            <button class="tab-btn active" data-tab="tabMajd"><i class="fas fa-crown" style="color:#f5b042;"></i> مركز المجد</button>
+            <button class="tab-btn" data-tab="tabAgyal"><i class="fas fa-seedling" style="color:#46a05c;"></i> مركز أجيال</button>
+            <button class="tab-btn" data-tab="tabRequests"><i class="fas fa-list-check" style="color:#f5b042;"></i> طلبات المعلمين</button>
+            <button class="tab-btn" data-tab="tabSchedules"><i class="fas fa-calendar-alt" style="color:#f5b042;"></i> الجداول</button>
             <button class="tab-btn" data-tab="tabContact"><i class="fas fa-phone"></i> التواصل</button>
         </div>
 
-        <!-- =====  TAB 1: مركز المجد ===== -->
+        <!-- =====  TAB 1: مركز المجد (المعلمين) ===== -->
         <div class="tab-content active" id="tabMajd">
-            <div class="center-card" style="max-width:900px; margin:0 auto;">
+            <div class="center-card">
                 <div class="card-header">
                     <h3><i class="fas fa-crown" style="color:#f5b042;"></i> مركز المجد التعليمي</h3>
                     <span class="badge-level">نخبة المعلمين</span>
                 </div>
 
-                <!-- عربي -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-book"></i> اللغة العربية</div>
                     <div class="teacher-item"><span>الأستاذ جراح محمد</span> <span class="stage">الإعدادية والثانوية</span></div>
@@ -778,7 +894,6 @@
                     <div class="teacher-item"><span>الأستاذ إبراهيم عبد الحميد</span> <span class="stage">الإعدادية الأزهرية</span></div>
                 </div>
 
-                <!-- انجليزي -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-language"></i> اللغة الإنجليزية</div>
                     <div class="teacher-item"><span>مستر أشرف عنتر</span> <span class="stage">الإعدادية والثانوية</span></div>
@@ -786,38 +901,32 @@
                     <div class="teacher-item"><span>مس ريم شعبان</span> <span class="stage">الابتدائية</span></div>
                 </div>
 
-                <!-- فرنساوي -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-language"></i> اللغة الفرنسية</div>
                     <div class="teacher-item"><span>مسيو محمد أبوحسيبة</span> <span class="stage">الثانوية</span></div>
                 </div>
 
-                <!-- برمجة -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-code"></i> البرمجة</div>
                     <div class="teacher-item"><span>مستر ياسر الدروي</span> <span class="stage">الثانوية</span></div>
                 </div>
 
-                <!-- رياضيات -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-calculator"></i> الرياضيات</div>
                     <div class="teacher-item"><span>مستر محمود عزمي</span> <span class="stage">الابتدائية · الإعدادية · الثانوية</span></div>
                 </div>
 
-                <!-- دراسات -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-globe-africa"></i> الدراسات الاجتماعية</div>
                     <div class="teacher-item"><span>مستر حماده شوقي</span> <span class="stage">الابتدائية · الإعدادية · الثانوية</span></div>
                 </div>
 
-                <!-- علوم -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-flask"></i> العلوم</div>
                     <div class="teacher-item"><span>مستر محمود بهاء</span> <span class="stage">الإعدادية والثانوية</span></div>
                     <div class="teacher-item"><span>مس سلمى طه</span> <span class="stage">الابتدائية</span></div>
                 </div>
 
-                <!-- المدير -->
                 <div class="contact-block">
                     <div class="contact-row">
                         <span class="label"><i class="fas fa-user-cog"></i> المدير: أ. سعد طه</span>
@@ -830,15 +939,14 @@
             </div>
         </div>
 
-        <!-- =====  TAB 2: مركز أجيال ===== -->
+        <!-- =====  TAB 2: مركز أجيال (المعلمين) ===== -->
         <div class="tab-content" id="tabAgyal">
-            <div class="center-card" style="max-width:900px; margin:0 auto;">
+            <div class="center-card">
                 <div class="card-header">
                     <h3><i class="fas fa-seedling" style="color:#46a05c;"></i> مركز أجيال التعليمي</h3>
                     <span class="badge-level">نخبة المعلمين</span>
                 </div>
 
-                <!-- انجليزي -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-language"></i> اللغة الإنجليزية</div>
                     <div class="teacher-item"><span>مستر أشرف عنتر</span> <span class="stage">الإعدادية والثانوية</span></div>
@@ -846,7 +954,6 @@
                     <div class="teacher-item"><span>مس شيماء ممدوح</span> <span class="stage">الابتدائية</span></div>
                 </div>
 
-                <!-- عربي -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-book"></i> اللغة العربية</div>
                     <div class="teacher-item"><span>الأستاذ جراح محمد</span> <span class="stage">الإعدادية والثانوية</span></div>
@@ -854,26 +961,22 @@
                     <div class="teacher-item"><span>مس سهام ماهر</span> <span class="stage">الابتدائية</span></div>
                 </div>
 
-                <!-- عربي أزهر -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-book"></i> اللغة العربية (أزهر)</div>
                     <div class="teacher-item"><span>الأستاذ بكر الصياد</span> <span class="stage">الثانوية</span></div>
                     <div class="teacher-item"><span>الأستاذ إبراهيم عبد الحميد</span> <span class="stage">الإعدادية</span></div>
                 </div>
 
-                <!-- فرنساوي -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-language"></i> اللغة الفرنسية</div>
                     <div class="teacher-item"><span>مسيو محمد أبوحسيبة</span> <span class="stage">الثانوية</span></div>
                 </div>
 
-                <!-- برمجة -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-code"></i> البرمجة</div>
                     <div class="teacher-item"><span>مستر ياسر الدروي</span> <span class="stage">الثانوية</span></div>
                 </div>
 
-                <!-- رياضيات -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-calculator"></i> الرياضيات</div>
                     <div class="teacher-item"><span>مستر محمود جمال</span> <span class="stage">الإعدادية والثانوية</span></div>
@@ -881,21 +984,18 @@
                     <div class="teacher-item"><span>مس سهام ماهر</span> <span class="stage">الابتدائية</span></div>
                 </div>
 
-                <!-- علوم -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-flask"></i> العلوم</div>
                     <div class="teacher-item"><span>مستر محمود بهاء</span> <span class="stage">الإعدادية والثانوية</span></div>
                     <div class="teacher-item"><span>مس سلمى طه</span> <span class="stage">الابتدائية</span></div>
                 </div>
 
-                <!-- دراسات -->
                 <div class="teacher-subject">
                     <div class="subject-name"><i class="fas fa-globe-africa"></i> الدراسات الاجتماعية</div>
                     <div class="teacher-item"><span>مستر هشام بدر</span> <span class="stage">الإعدادية والثانوية</span></div>
                     <div class="teacher-item"><span>مس رحاب عثمان</span> <span class="stage">الابتدائية</span></div>
                 </div>
 
-                <!-- المدير -->
                 <div class="contact-block">
                     <div class="contact-row">
                         <span class="label"><i class="fas fa-user-cog"></i> المدير: أ. سعد طه</span>
@@ -908,13 +1008,479 @@
             </div>
         </div>
 
-        <!-- =====  TAB 3: التواصل ===== -->
+        <!-- =====  TAB 3: طلبات المعلمين ===== -->
+        <div class="tab-content" id="tabRequests">
+            <h3 style="font-size:1.8rem; color:#0b2b5c; margin-bottom:0.3rem;">
+                <i class="fas fa-list-check" style="color:#f5b042;"></i> طلبات المعلمين
+            </h3>
+            <p style="color:#2a5a7a; margin-bottom:1.5rem;">الكتب والمذكرات المطلوبة لكل مرحلة دراسية — الترم الأول</p>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:30px;">
+
+                <!-- =====  عمود سنتر أجيال ===== -->
+                <div>
+                    <h4 style="font-size:1.5rem; color:#46a05c; margin-bottom:1rem; border-bottom:3px solid #46a05c; padding-bottom:0.3rem;">
+                        <i class="fas fa-seedling"></i> سنتر أجيال
+                    </h4>
+                    <div class="requests-grid" style="grid-template-columns:1fr;">
+
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-child"></i> ابتدائي 1-3</h4>
+                                <span class="stage-badge">أول · ثاني · ثالث</span>
+                            </div>
+                            <div class="request-item"><span class="subject">عربي</span> <span class="book">ملخص سلاح التلميذ</span></div>
+                            <div class="request-item"><span class="subject">حساب</span> <span class="book">ملخص سلاح التلميذ</span></div>
+                            <div class="request-item"><span class="subject">انجليزي</span> <span class="book">ملخص المعاصر</span></div>
+                            <div class="note-footer">نرجو التزام جميع الطلاب بالمطلوب وعدم التغيير</div>
+                        </div>
+
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-user-graduate"></i> ابتدائي 4-6</h4>
+                                <span class="stage-badge">رابع · خامس · سادس</span>
+                            </div>
+                            <div class="request-item"><span class="subject">عربي</span> <span class="book">ملخص الأضواء</span></div>
+                            <div class="request-item"><span class="subject">رياضيات</span> <span class="book">ملخص الأضواء</span></div>
+                            <div class="request-item"><span class="subject">انجليزي</span> <span class="book">ملخص المعاصر</span></div>
+                            <div class="request-item"><span class="subject">علوم</span> <span class="book">ملخص الأضواء</span></div>
+                            <div class="request-item"><span class="subject">دراسات</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="note-footer">نرجو التزام جميع الطلاب بالمطلوب وعدم التغيير</div>
+                        </div>
+
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-user-graduate"></i> إعدادي 1-3</h4>
+                                <span class="stage-badge">أول · ثاني · ثالث</span>
+                            </div>
+                            <div class="request-item"><span class="subject">عربي</span> <span class="book">كتاب الأضواء</span></div>
+                            <div class="request-item"><span class="subject">عربي أزهر</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">رياضيات</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">انجليزي</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">علوم (1-2 إعدادي)</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">دراسات</span> <span class="book">كتاب الامتحان</span></div>
+                            <div class="note-footer">نرجو التزام جميع الطلاب بالمطلوب وعدم التغيير</div>
+                        </div>
+
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-user-graduate"></i> ثانوي 1-2</h4>
+                                <span class="stage-badge">أول · ثاني</span>
+                            </div>
+                            <div class="request-item"><span class="subject">عربي</span> <span class="book">كتاب الامتحان</span></div>
+                            <div class="request-item"><span class="subject">عربي أزهر</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">رياضيات</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">انجليزي</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">علوم متكاملة (1 ث)</span> <span class="book not-set">لم يحدد</span></div>
+                            <div class="request-item"><span class="subject">فيزياء (2 ث)</span> <span class="book not-set">لم يحدد</span></div>
+                            <div class="request-item"><span class="subject">دراسات</span> <span class="book">كتاب الامتحان</span></div>
+                            <div class="request-item"><span class="subject">فرنساوي</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">برمجة (2 ث)</span> <span class="book not-set">لم يحدد</span></div>
+                            <div class="note-footer">نرجو التزام جميع الطلاب بالمطلوب وعدم التغيير</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- =====  عمود سنتر المجد ===== -->
+                <div>
+                    <h4 style="font-size:1.5rem; color:#f5b042; margin-bottom:1rem; border-bottom:3px solid #f5b042; padding-bottom:0.3rem;">
+                        <i class="fas fa-crown"></i> سنتر المجد
+                    </h4>
+                    <div class="requests-grid" style="grid-template-columns:1fr;">
+
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-child"></i> ابتدائي 1-3</h4>
+                                <span class="stage-badge">أول · ثاني · ثالث</span>
+                            </div>
+                            <div class="request-item"><span class="subject">عربي وحساب</span> <span class="book">كتاب الأضواء</span></div>
+                            <div class="request-item"><span class="subject">انجليزي</span> <span class="book">كتاب جيم</span></div>
+                            <div class="note-footer">نرجو التزام جميع الطلاب بالمطلوب وعدم التغيير</div>
+                        </div>
+
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-user-graduate"></i> ابتدائي 4-6</h4>
+                                <span class="stage-badge">رابع · خامس · سادس</span>
+                            </div>
+                            <div class="request-item"><span class="subject">عربي</span> <span class="book">الأضواء</span></div>
+                            <div class="request-item"><span class="subject">علوم</span> <span class="book">الأضواء</span></div>
+                            <div class="request-item"><span class="subject">انجليزي</span> <span class="book">المعاصر</span></div>
+                            <div class="request-item"><span class="subject">رياضيات</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">دراسات</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="note-footer">نرجو التزام جميع الطلاب بالمطلوب وعدم التغيير</div>
+                        </div>
+
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-user-graduate"></i> إعدادي 1-3</h4>
+                                <span class="stage-badge">أول · ثاني · ثالث</span>
+                            </div>
+                            <div class="request-item"><span class="subject">عربي</span> <span class="book">كتاب الأضواء</span></div>
+                            <div class="request-item"><span class="subject">دراسات</span> <span class="book">كتاب الامتحان</span></div>
+                            <div class="request-item"><span class="subject">انجليزي</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">رياضيات</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">علوم (1-2 إعدادي)</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="note-footer">نرجو التزام جميع الطلاب بالمطلوب وعدم التغيير</div>
+                        </div>
+
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h4><i class="fas fa-user-graduate"></i> ثانوي 1-2</h4>
+                                <span class="stage-badge">أول · ثاني</span>
+                            </div>
+                            <div class="request-item"><span class="subject">عربي</span> <span class="book">كتاب الامتحان</span></div>
+                            <div class="request-item"><span class="subject">دراسات</span> <span class="book">كتاب الامتحان</span></div>
+                            <div class="request-item"><span class="subject">انجليزي</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">رياضيات</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">علوم متكاملة (1 ث)</span> <span class="book not-set">لم يحدد</span></div>
+                            <div class="request-item"><span class="subject">فيزياء (2 ث)</span> <span class="book not-set">لم يحدد</span></div>
+                            <div class="request-item"><span class="subject">فرنساوي</span> <span class="book">مذكرة من السنتر</span></div>
+                            <div class="request-item"><span class="subject">برمجة (2 ث)</span> <span class="book not-set">لم يحدد</span></div>
+                            <div class="note-footer">نرجو التزام جميع الطلاب بالمطلوب وعدم التغيير</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =====  TAB 4: الجداول ===== -->
+        <div class="tab-content" id="tabSchedules">
+            <h3 style="font-size:1.8rem; color:#0b2b5c; margin-bottom:0.3rem;">
+                <i class="fas fa-calendar-alt" style="color:#f5b042;"></i> الجداول الدراسية
+            </h3>
+            <p style="color:#2a5a7a; margin-bottom:1.5rem;">مواعيد الحصص لكل مرحلة دراسية — الترم الأول</p>
+
+            <div class="schedule-grid">
+
+                <!-- =====  عمود سنتر المجد ===== -->
+                <div class="schedule-col">
+                    <h4 class="majd-color"><i class="fas fa-crown"></i> سنتر المجد</h4>
+
+                    <!-- الصف الأول الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الأول الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس ريم شعبان</span> <span class="sch-time">السبت والثلاثاء الساعة 3</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس انجليزي</span> <span class="sch-teacher">مس ريم شعبان</span> <span class="sch-time">السبت والثلاثاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الجمعة والأربعاء الساعة 3</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس عربي</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الجمعة والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">حساب</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الاثنين والخميس الساعة 3</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس حساب</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الاثنين والخميس الساعة 6</span></div>
+                    </div>
+
+                    <!-- الصف الثاني الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثاني الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس ريم شعبان</span> <span class="sch-time">السبت والثلاثاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس انجليزي</span> <span class="sch-teacher">مس ريم شعبان</span> <span class="sch-time">السبت والثلاثاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الجمعة والأربعاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس عربي</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الجمعة والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">حساب</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الاثنين والخميس الساعة 3</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس حساب</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الاثنين والخميس الساعة 6</span></div>
+                    </div>
+
+                    <!-- الصف الثالث الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثالث الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس ريم شعبان</span> <span class="sch-time">السبت والثلاثاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس انجليزي</span> <span class="sch-teacher">مس ريم شعبان</span> <span class="sch-time">السبت والثلاثاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الجمعة والأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس عربي</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الجمعة والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">حساب</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الاثنين والخميس الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس حساب</span> <span class="sch-teacher">مس فاطمة أحمد</span> <span class="sch-time">الاثنين والخميس الساعة 6</span></div>
+                    </div>
+
+                    <!-- الصف الرابع الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الرابع الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">الأستاذ أحمد بدوي</span> <span class="sch-time">الجمعة الساعة 3 · الاثنين الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس أمل أحمد</span> <span class="sch-time">السبت والثلاثاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">مستر محمود عزمي</span> <span class="sch-time">الأحد والأربعاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">مستر حماده شوقي</span> <span class="sch-time">الجمعة الساعة 2 · الأحد الساعة 3</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">مس سلمى طه</span> <span class="sch-time">الاثنين والخميس الساعة 3</span></div>
+                    </div>
+
+                    <!-- الصف الخامس الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الخامس الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">الأستاذ أحمد بدوي</span> <span class="sch-time">الجمعة الساعة 4 · الاثنين الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس أمل أحمد</span> <span class="sch-time">السبت والثلاثاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">مستر محمود عزمي</span> <span class="sch-time">الأحد والأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">مستر حماده شوقي</span> <span class="sch-time">الجمعة الساعة 3 · الأحد الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">مس سلمى طه</span> <span class="sch-time">الاثنين والخميس الساعة 4</span></div>
+                    </div>
+
+                    <!-- الصف السادس الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف السادس الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">الأستاذ أحمد بدوي</span> <span class="sch-time">الجمعة الساعة 5 · الاثنين الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس أمل أحمد</span> <span class="sch-time">السبت والثلاثاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">مستر محمود عزمي</span> <span class="sch-time">الأحد والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">مستر حماده شوقي</span> <span class="sch-time">الجمعة الساعة 4 · الأحد الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">مس سلمى طه</span> <span class="sch-time">الاثنين والخميس الساعة 5</span></div>
+                    </div>
+
+                    <!-- الصف الأول الإعدادي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الأول الإعدادي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين الساعة 5 · الخميس الساعة 4:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 4 · الثلاثاء الساعة 6</span></div>
+                    </div>
+
+                    <!-- الصف الثاني الإعدادي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثاني الإعدادي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين الساعة 6 · الخميس الساعة 5:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 5 · الثلاثاء الساعة 7</span></div>
+                    </div>
+
+                    <!-- الصف الثالث الإعدادي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثالث الإعدادي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين الساعة 7 · الخميس الساعة 3:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 3</span></div>
+                    </div>
+
+                    <!-- الصف الأول الثانوي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الأول الثانوي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الخميس الساعة 6:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 12</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 3:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تاريخ</span> <span class="sch-teacher">—</span> <span class="sch-time">الثلاثاء الساعة 4:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">فرنساوي</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 6</span></div>
+                    </div>
+
+                    <!-- الصف الثاني الثانوي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثاني الثانوي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">برمجة</span> <span class="sch-teacher">—</span> <span class="sch-note">لم يتم تحديد المواعيد إلى الآن</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين الساعة 3 · الخميس الساعة 1:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 3:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">فيزياء</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 1:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تاريخ</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 5:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">فرنساوي</span> <span class="sch-teacher">—</span> <span class="sch-time">الخميس الساعة 5</span></div>
+                    </div>
+
+                </div>
+
+                <!-- =====  عمود سنتر أجيال ===== -->
+                <div class="schedule-col">
+                    <h4 class="agyal-color"><i class="fas fa-seedling"></i> سنتر أجيال</h4>
+
+                    <!-- الصف الأول الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الأول الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الأحد والأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس عربي</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الأحد والأربعاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">حساب</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الاثنين والخميس الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس حساب</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الاثنين والخميس الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس شيماء ممدوح</span> <span class="sch-time">السبت والثلاثاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس انجليزي</span> <span class="sch-teacher">مس شيماء ممدوح</span> <span class="sch-time">السبت والثلاثاء الساعة 4</span></div>
+                    </div>
+
+                    <!-- الصف الثاني الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثاني الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الأحد والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس عربي</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الأحد والأربعاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">حساب</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الاثنين والخميس الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس حساب</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الاثنين والخميس الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس شيماء ممدوح</span> <span class="sch-time">السبت والثلاثاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس انجليزي</span> <span class="sch-teacher">مس شيماء ممدوح</span> <span class="sch-time">السبت والثلاثاء الساعة 4</span></div>
+                    </div>
+
+                    <!-- الصف الثالث الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثالث الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الأحد والأربعاء الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس عربي</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الأحد والأربعاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">حساب</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الاثنين والخميس الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس حساب</span> <span class="sch-teacher">مس سهام ماهر</span> <span class="sch-time">الاثنين والخميس الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">مس شيماء ممدوح</span> <span class="sch-time">السبت والثلاثاء الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تأسيس انجليزي</span> <span class="sch-teacher">مس شيماء ممدوح</span> <span class="sch-time">السبت والثلاثاء الساعة 4</span></div>
+                    </div>
+
+                    <!-- الصف الرابع الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الرابع الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 3</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين والخميس الساعة 3</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين والخميس الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 3 · الأربعاء الساعة 4</span></div>
+                    </div>
+
+                    <!-- الصف الخامس الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الخامس الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين والخميس الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين والخميس الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 4 · الأربعاء الساعة 5</span></div>
+                    </div>
+
+                    <!-- الصف السادس الابتدائي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف السادس الابتدائي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين والخميس الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين والخميس الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 5 · الأربعاء الساعة 6</span></div>
+                    </div>
+
+                    <!-- الصف الأول الإعدادي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الأول الإعدادي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 6 · الثلاثاء الساعة 6:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 6 · الثلاثاء الساعة 5:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 3 · الاثنين الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي أزهر</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 5</span></div>
+                    </div>
+
+                    <!-- الصف الثاني الإعدادي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثاني الإعدادي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 5 · الثلاثاء الساعة 5:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 5 · الثلاثاء الساعة 4:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 4 · الاثنين الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي أزهر</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 4</span></div>
+                    </div>
+
+                    <!-- الصف الثالث الإعدادي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثالث الإعدادي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 4 · الثلاثاء الساعة 4:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 4 · الثلاثاء الساعة 3:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">دراسات</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 5 · الاثنين الساعة 2</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي أزهر</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت والثلاثاء الساعة 3</span></div>
+                    </div>
+
+                    <!-- الصف الأول الثانوي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الأول الثانوي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد والأربعاء الساعة 3:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تاريخ</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">علوم متكاملة</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين والخميس الساعة 8</span></div>
+                        <div class="schedule-item"><span class="sch-subject">فرنساوي</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين الساعة 4:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">برمجة</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي أزهر</span> <span class="sch-teacher">—</span> <span class="sch-time">الاثنين والخميس الساعة 3</span></div>
+                    </div>
+
+                    <!-- الصف الثاني الثانوي -->
+                    <div class="schedule-card">
+                        <div class="sch-header">
+                            <h5>الصف الثاني الثانوي</h5>
+                            <span class="grade-badge">2026/2027</span>
+                        </div>
+                        <div class="schedule-item"><span class="sch-subject">عربي</span> <span class="sch-teacher">—</span> <span class="sch-time">الثلاثاء الساعة 2</span></div>
+                        <div class="schedule-item"><span class="sch-subject">انجليزي</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 2</span></div>
+                        <div class="schedule-item"><span class="sch-subject">رياضيات</span> <span class="sch-teacher">—</span> <span class="sch-time">السبت الساعة 4</span></div>
+                        <div class="schedule-item"><span class="sch-subject">تاريخ</span> <span class="sch-teacher">—</span> <span class="sch-time">الأربعاء الساعة 7</span></div>
+                        <div class="schedule-item"><span class="sch-subject">فيزياء</span> <span class="sch-teacher">—</span> <span class="sch-time">الجمعة الساعة 6</span></div>
+                        <div class="schedule-item"><span class="sch-subject">فرنساوي</span> <span class="sch-teacher">—</span> <span class="sch-time">الأربعاء الساعة 5</span></div>
+                        <div class="schedule-item"><span class="sch-subject">برمجة</span> <span class="sch-teacher">—</span> <span class="sch-time">الأحد الساعة 6:30</span></div>
+                        <div class="schedule-item"><span class="sch-subject">عربي أزهر</span> <span class="sch-teacher">—</span> <span class="sch-time">الخميس الساعة 4:30</span></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =====  TAB 5: التواصل ===== -->
         <div class="tab-content" id="tabContact">
             <div style="background:white; border-radius:40px; padding:2rem; box-shadow:0 8px 30px rgba(0,0,0,0.03); max-width:700px; margin:0 auto;">
                 <h3 style="font-size:1.8rem; color:#0b2b5c; text-align:center;"><i class="fas fa-phone" style="color:#f5b042;"></i> قنوات التواصل</h3>
 
                 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; margin-top:25px;">
-                    <!-- المدير -->
                     <div style="background:#f8faff; padding:1.5rem; border-radius:30px; text-align:center; border:1px solid #e4edf7;">
                         <i class="fas fa-user-cog" style="font-size:2rem; color:#f5b042;"></i>
                         <p style="font-weight:700; margin:8px 0;">المدير: أ. سعد طه</p>
@@ -924,7 +1490,6 @@
                         </a>
                     </div>
 
-                    <!-- المطور -->
                     <div style="background:#f5f9ff; padding:1.5rem; border-radius:30px; text-align:center; border:1px dashed #b2cbe5;">
                         <i class="fas fa-code" style="font-size:2rem; color:#f5b042;"></i>
                         <p style="font-weight:700; margin:8px 0;">المطور: أحمد سعد طه</p>
@@ -933,7 +1498,6 @@
                     </div>
                 </div>
 
-                <!-- البريد الإلكتروني الجديد -->
                 <div style="margin-top:25px; background:#eaf1fc; padding:0.8rem 1.8rem; border-radius:60px; text-align:center;">
                     <i class="fas fa-envelope" style="color:#f5b042;"></i> للتواصل: <strong>as78017934@gmail.com</strong>
                 </div>
@@ -952,45 +1516,9 @@
 
         <!-- =====  فوتر ===== -->
         <div class="footer-glow">
-            <i class="fas fa-crown"></i> Education Center · مركز المجد &amp; مركز أجيال <i class="fas fa-crown"></i>
+            <i class="fas fa-crown"></i> Education Center · مركز المجد &amp; مركز أجيال · الجداول الدراسية <i class="fas fa-crown"></i>
         </div>
 
-    </div>
-
-    <!-- =====  نافذة تسجيل الدخول ===== -->
-    <div class="login-overlay" id="loginOverlay">
-        <div class="login-card">
-            <button class="close-login" id="closeLoginBtn"><i class="fas fa-times"></i></button>
-            <h3><i class="fas fa-user-graduate" style="color:#f5b042;"></i> تسجيل الدخول</h3>
-            <p class="sub-login">سجل بياناتك وسنرد عليك خلال 24 ساعة</p>
-
-            <form id="loginForm">
-                <div class="form-group">
-                    <label><i class="fas fa-user"></i> الاسم الكامل</label>
-                    <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required />
-                </div>
-                <div class="form-group">
-                    <label><i class="fas fa-phone"></i> رقم الهاتف</label>
-                    <input type="tel" id="phoneNumber" placeholder="أدخل رقم هاتفك" required />
-                </div>
-                <div class="form-group">
-                    <label><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
-                    <input type="email" id="emailAddress" placeholder="أدخل بريدك الإلكتروني" required />
-                </div>
-                <div class="form-group">
-                    <label><i class="fas fa-comment"></i> رسالتك</label>
-                    <input type="text" id="userMessage" placeholder="اكتب رسالتك (اختياري)" />
-                </div>
-                <button type="submit" class="btn-login"><i class="fas fa-paper-plane"></i> إرسال</button>
-            </form>
-
-            <div class="login-status" id="loginStatus"></div>
-        </div>
-    </div>
-
-    <!-- =====  رسالة نجاح ===== -->
-    <div class="toast-message" id="toastMessage">
-        <i class="fas fa-check-circle"></i> تم التسجيل بنجاح! سيتم الرد قريباً
     </div>
 
     <script>
@@ -1025,6 +1553,8 @@
             const contents = {
                 tabMajd: document.getElementById('tabMajd'),
                 tabAgyal: document.getElementById('tabAgyal'),
+                tabRequests: document.getElementById('tabRequests'),
+                tabSchedules: document.getElementById('tabSchedules'),
                 tabContact: document.getElementById('tabContact')
             };
 
@@ -1041,110 +1571,7 @@
                 });
             });
 
-            // =====  نافذة تسجيل الدخول =====
-            const loginOverlay = document.getElementById('loginOverlay');
-            const openLoginBtn = document.getElementById('openLoginBtn');
-            const closeLoginBtn = document.getElementById('closeLoginBtn');
-            const loginForm = document.getElementById('loginForm');
-            const loginStatus = document.getElementById('loginStatus');
-            const toastMessage = document.getElementById('toastMessage');
-
-            function openLogin() {
-                loginOverlay.classList.add('show');
-                document.body.style.overflow = 'hidden';
-                loginStatus.textContent = '';
-            }
-
-            function closeLogin() {
-                loginOverlay.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-
-            openLoginBtn.addEventListener('click', openLogin);
-            closeLoginBtn.addEventListener('click', closeLogin);
-            loginOverlay.addEventListener('click', function(e) {
-                if (e.target === loginOverlay) closeLogin();
-            });
-
-            // =====  ربط بجوجل شيت =====
-            // ✅ تم استبدال البريد الإلكتروني بـ as78017934@gmail.com
-            const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwTw39-Y2UE6rLUFEZ2_CeZht4zwXJB3mjFJMMkzebQJ9TPnjnbIqW3PYzkthF07RVA/exec';
-
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const fullName = document.getElementById('fullName').value.trim();
-                const phone = document.getElementById('phoneNumber').value.trim();
-                const email = document.getElementById('emailAddress').value.trim();
-                const message = document.getElementById('userMessage').value.trim() || 'لا توجد رسالة';
-
-                if (!fullName || !phone || !email) {
-                    loginStatus.textContent = '⚠️ يرجى ملء جميع الحقول المطلوبة';
-                    loginStatus.style.color = '#d9534f';
-                    return;
-                }
-
-                // تعطيل الزر أثناء الإرسال
-                const submitBtn = loginForm.querySelector('.btn-login');
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
-                loginStatus.textContent = '';
-
-                // إرسال البيانات إلى جوجل شيت
-                fetch(SHEET_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            name: fullName,
-                            phone: phone,
-                            email: email,
-                            message: message,
-                            timestamp: new Date().toLocaleString('ar-EG')
-                        })
-                    })
-                    .then(() => {
-                        // no-cors لا يعطي استجابة، لكن البيانات تصل
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال';
-
-                        // عرض رسالة نجاح
-                        loginStatus.textContent = '✅ تم التسجيل بنجاح! سيتم الرد خلال 24 ساعة';
-                        loginStatus.style.color = '#1f8b4c';
-
-                        // عرض التوست
-                        toastMessage.style.display = 'block';
-                        setTimeout(() => {
-                            toastMessage.style.display = 'none';
-                        }, 4000);
-
-                        // تنظيف النموذج بعد 2 ثانية
-                        setTimeout(() => {
-                            loginForm.reset();
-                            loginStatus.textContent = '';
-                            closeLogin();
-                        }, 2500);
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال';
-                        loginStatus.textContent = '❌ حدث خطأ، حاول مرة أخرى';
-                        loginStatus.style.color = '#d9534f';
-                    });
-            });
-
-            // =====  إغلاق التسجيل بالـ Escape =====
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && loginOverlay.classList.contains('show')) {
-                    closeLogin();
-                }
-            });
-
-            console.log('✅ Education Center · مع تسجيل دخول وجوجل شيت');
-            console.log('📧 البريد الإلكتروني: as78017934@gmail.com');
+            console.log('✅ Education Center · تم إضافة قسم الجداول بالكامل');
         })();
     </script>
 
