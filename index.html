@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education Center | المجد &amp; أجيال</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #f0f6ff;
+            color: #0a1e32;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #d9e5f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f5a9e;
+            border-radius: 20px;
+        }
+
+        /* =====  النافذة المنبثقة ===== */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 15, 35, 0.88);
+            backdrop-filter: blur(14px) saturate(180%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            animation: fadeIn 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .welcome-card {
+            background: linear-gradient(145deg, #ffffff, #f0f6ff);
+            max-width: 680px;
+            width: 92%;
+            padding: 3rem 2.8rem;
+            border-radius: 70px 70px 70px 20px;
+            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 215, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .welcome-card::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -30%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.07), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .welcome-card .icon-big {
+            font-size: 4.2rem;
+            background: linear-gradient(135deg, #f5b042, #d4892b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.2rem;
+        }
+
+        .welcome-card h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #0b2b5c, #1f6eb0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .welcome-card .sub-head {
+            font-size: 1.3rem;
+            color: #1f3f6b;
+            font-weight: 600;
+            margin: 0.2rem 0 0.8rem;
+        }
+
+        .welcome-card .gold-badge {
+            background: linear-gradient(135deg, #f7e6b0, #f5d06a);
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            display: inline-block;
+            font-weight: 800;
+            color: #1f3f6b;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(245, 176, 66, 0.3);
+            margin: 0.5rem 0 1.2rem;
+        }
+
+        .welcome-card p {
+            font-size: 1.1rem;
+            color: #1f3a5f;
+            line-height: 1.9;
+            margin-bottom: 1.8rem;
+        }
+
+        .welcome-card p i {
+            color: #f5b042;
+            margin: 0 4px;
+        }
+
+        .btn-welcome {
+            background: linear-gradient(135deg, #1f5a9e, #0d3b6e);
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 800;
+            padding: 1rem 3.8rem;
+            border-radius: 80px;
+            cursor: pointer;
+            box-shadow: 0 14px 35px rgba(20, 70, 150, 0.5);
+            transition: 0.25s;
+            font-family: 'Tajawal', sans-serif;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-welcome:hover {
+            transform: scale(1.05) translateY(-3px);
+            background: linear-gradient(135deg, #2b6fc9, #0f4a8a);
+            box-shadow: 0 20px 45px rgba(0, 50, 130, 0.7);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.92) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* =====  المحتوى الرئيسي ===== */
+        .main-content {
+            display: none;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 30px 40px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        /* =====  HEADER ===== */
+        .header-hero {
+            background: linear-gradient(135deg, #08213b, #1a4a7a);
+            padding: 2rem 2.8rem;
+            border-radius: 50px 50px 50px 18px;
+            margin-bottom: 40px;
+            box-shadow: 0 18px 40px rgba(0, 20, 50, 0.35);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .header-hero .brand h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .header-hero .brand h2 i {
+            color: #f7d44a;
+            margin-left: 12px;
+        }
+
+        .header-hero .brand p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .header-hero .stats {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .header-hero .stats span {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 0.4rem 1.5rem;
+            border-radius: 60px;
+            color: #f0f5ff;
+            font-weight: 600;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        .header-hero .stats i {
+            color: #f7d44a;
+            margin-left: 8px;
+        }
+
+        /* =====  زر تسجيل الدخول ===== */
+        .login-btn-header {
+            background: linear-gradient(135deg, #f5b042, #e0952a);
+            border: none;
+            color: #0b2b5c;
+            font-weight: 800;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: 'Tajawal', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(245, 176, 66, 0.3);
+        }
+
+        .login-btn-header:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(245, 176, 66, 0.5);
+        }
+
+        /* =====  نافذة تسجيل الدخول ===== */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 15, 35, 0.85);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100000;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .login-overlay.show {
+            display: flex;
+        }
+
+        .login-card {
+            background: linear-gradient(145deg, #ffffff, #f5f9ff);
+            max-width: 480px;
+            width: 92%;
+            padding: 2.8rem 2.5rem;
+            border-radius: 50px 50px 50px 15px;
+            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(245, 176, 66, 0.05), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .login-card .close-login {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 1.8rem;
+            color: #4a6a8a;
+            cursor: pointer;
+            transition: 0.2s;
+            background: none;
+            border: none;
+        }
+
+        .login-card .close-login:hover {
+            transform: rotate(90deg);
+            color: #0b2b5c;
+        }
+
+        .login-card h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #0b2b5c;
+            text-align: center;
+            margin-bottom: 0.3rem;
+        }
+
+        .login-card .sub-login {
+            text-align: center;
+            color: #3a5a7a;
+            margin-bottom: 1.8rem;
+            font-size: 0.95rem;
+        }
+
+        .login-card .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .login-card .form-group label {
+            display: block;
+            font-weight: 700;
+            color: #0b2b5c;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .login-card .form-group input {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #dce5f0;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+            transition: 0.2s;
+            background: #f8faff;
+        }
+
+        .login-card .form-group input:focus {
+            outline: none;
+            border-color: #f5b042;
+            box-shadow: 0 0 0 4px rgba(245, 176, 66, 0.15);
+        }
+
+        .login-card .btn-login {
+            width: 100%;
+            background: linear-gradient(135deg, #1f5a9e, #0d3b6e);
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 0.9rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: 'Tajawal', sans-serif;
+            box-shadow: 0 6px 20px rgba(20, 70, 150, 0.3);
+            margin-top: 0.5rem;
+        }
+
+        .login-card .btn-login:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(20, 70, 150, 0.4);
+        }
+
+        .login-card .btn-login i {
+            margin-left: 10px;
+        }
+
+        .login-card .login-status {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #1f5a9e;
+            font-weight: 500;
+        }
+
+        /* =====  القوائم ===== */
+        .tabs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #dce5f0;
+            padding-bottom: 6px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 0.7rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2a4a7a;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Tajawal', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-btn i {
+            color: #f5b042;
+        }
+
+        .tab-btn:hover {
+            background: #e5effa;
+        }
+
+        .tab-btn.active {
+            background: #0b2b5c;
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(11, 43, 92, 0.3);
+        }
+
+        .tab-btn.active i {
+            color: #f7d44a;
+        }
+
+        /* =====  محتوى التاب ===== */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* =====  بطاقات المراكز ===== */
+        .centers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+            margin: 20px 0 30px;
+        }
+
+        .center-card {
+            background: #ffffff;
+            border-radius: 40px 40px 40px 12px;
+            padding: 2rem 1.8rem 2.2rem;
+            box-shadow: 0 12px 40px rgba(0, 20, 40, 0.07);
+            transition: 0.3s;
+            border: 1px solid rgba(0, 50, 120, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .center-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 55px rgba(0, 30, 70, 0.12);
+            border-color: #c7d9f0;
+        }
+
+        .center-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f5ff;
+            padding-bottom: 0.8rem;
+        }
+
+        .center-card h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #0b2b5c;
+        }
+
+        .center-card .badge-level {
+            background: #eef4fc;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1f5a9e;
+            font-size: 0.85rem;
+        }
+
+        /* =====  قائمة المعلمين داخل البطاقة ===== */
+        .teacher-subject {
+            margin: 0.8rem 0;
+            background: #f8faff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            border-right: 4px solid #f5b042;
+        }
+
+        .teacher-subject .subject-name {
+            font-weight: 800;
+            color: #0b2b5c;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .teacher-subject .subject-name i {
+            color: #f5b042;
+        }
+
+        .teacher-subject .teacher-item {
+            padding: 0.2rem 0 0.2rem 1.5rem;
+            font-size: 0.95rem;
+            color: #1f3f6b;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 1px dashed #e8f0fa;
+        }
+
+        .teacher-subject .teacher-item:last-child {
+            border-bottom: none;
+        }
+
+        .teacher-subject .teacher-item .stage {
+            color: #2a6a9a;
+            font-weight: 500;
+            font-size: 0.85rem;
+            background: #eef4fc;
+            padding: 0 12px;
+            border-radius: 20px;
+        }
+
+        /* =====  جهات الاتصال ===== */
+        .contact-block {
+            background: #eaf1fc;
+            border-radius: 30px;
+            padding: 0.9rem 1.4rem;
+            margin-top: 16px;
+            transition: 0.2s;
+        }
+
+        .contact-block .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .contact-block .label {
+            font-weight: 700;
+            color: #0b2b5c;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-block .label i {
+            color: #f5b042;
+        }
+
+        .btn-chat {
+            background: #25D366;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Tajawal', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-chat:hover {
+            background: #1da85c;
+            transform: scale(1.02);
+        }
+
+        .btn-chat:disabled {
+            background: #b8cce0;
+            box-shadow: none;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* =====  أقسام إضافية ===== */
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 35px 0 20px;
+        }
+
+        .quick-item {
+            background: #fff;
+            padding: 0.9rem 0.5rem;
+            border-radius: 60px;
+            text-align: center;
+            font-weight: 600;
+            color: #1f3f6b;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e4edf7;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .quick-item i {
+            color: #f5b042;
+            margin-left: 10px;
+        }
+
+        .quick-item:hover {
+            background: #eaf1fc;
+            border-color: #b2cbe5;
+            transform: translateY(-3px);
+        }
+
+        /* =====  فوتر ===== */
+        .footer-glow {
+            margin-top: 50px;
+            text-align: center;
+            padding: 1.8rem 0;
+            border-top: 2px solid #dce5f0;
+            color: #2a4a7a;
+            font-weight: 600;
+        }
+
+        .footer-glow i {
+            color: #f5b042;
+            margin: 0 6px;
+        }
+
+        /* =====  رسالة النجاح ===== */
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1f8b4c;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(31, 139, 76, 0.3);
+            z-index: 999999;
+            display: none;
+            animation: fadeIn 0.4s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .toast-message i {
+            margin-left: 10px;
+        }
+
+        /* =====  استجابة ===== */
+        @media (max-width: 700px) {
+            .welcome-card {
+                padding: 2rem 1.5rem;
+            }
+            .welcome-card h1 {
+                font-size: 2rem;
+            }
+            .btn-welcome {
+                font-size: 1.2rem;
+                padding: 0.8rem 2.2rem;
+            }
+            .header-hero {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                padding: 1.5rem;
+            }
+            .main-content {
+                padding: 12px 16px;
+            }
+            .center-card {
+                padding: 1.5rem;
+            }
+            .centers-grid {
+                grid-template-columns: 1fr;
+            }
+            .tabs-container {
+                gap: 8px;
+            }
+            .tab-btn {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.95rem;
+            }
+            .login-card {
+                padding: 2rem 1.5rem;
+            }
+            .login-card h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =====  النافذة المنبثقة ===== -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-card">
+            <div class="icon-big"><i class="fas fa-graduation-cap"></i></div>
+            <h1>Education Center</h1>
+            <div class="sub-head">سلسلة المراكز التعليمية</div>
+            <div class="gold-badge">
+                <i class="fas fa-star"></i> نخبة المعلمين <i class="fas fa-star"></i>
+            </div>
+            <p>
+                <i class="fas fa-crown"></i> <strong>مركز المجد</strong> · <strong>مركز أجيال</strong> <br />
+                ابتدائي · إعدادي · ثانوي — بأقوى الكوادر في جميع المواد
+            </p>
+            <button class="btn-welcome" id="closeWelcomeBtn">
+                <i class="fas fa-check-circle"></i> حسناً
+            </button>
+        </div>
+    </div>
+
+    <!-- =====  المحتوى الرئيسي ===== -->
+    <div class="main-content" id="mainContent">
+
+        <!-- =====  HEADER ===== -->
+        <div class="header-hero">
+            <div class="brand">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Education Center</h2>
+                <p><i class="fas fa-arrow-left"></i> المجد · أجيال — التميز في التعليم</p>
+            </div>
+            <div class="stats">
+                <span><i class="fas fa-users"></i> 2 مركز</span>
+                <span><i class="fas fa-book"></i> جميع المواد</span>
+                <span><i class="fas fa-star"></i> نخبة</span>
+                <button class="login-btn-header" id="openLoginBtn">
+                    <i class="fas fa-user-plus"></i> تسجيل الدخول
+                </button>
+            </div>
+        </div>
+
+        <!-- =====  القوائم ===== -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="tabMajd"><i class="fas fa-crown"></i> مركز المجد</button>
+            <button class="tab-btn" data-tab="tabAgyal"><i class="fas fa-seedling"></i> مركز أجيال</button>
+            <button class="tab-btn" data-tab="tabContact"><i class="fas fa-phone"></i> التواصل</button>
+        </div>
+
+        <!-- =====  TAB 1: مركز المجد ===== -->
+        <div class="tab-content active" id="tabMajd">
+            <div class="center-card" style="max-width:900px; margin:0 auto;">
+                <div class="card-header">
+                    <h3><i class="fas fa-crown" style="color:#f5b042;"></i> مركز المجد التعليمي</h3>
+                    <span class="badge-level">نخبة المعلمين</span>
+                </div>
+
+                <!-- عربي -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-book"></i> اللغة العربية</div>
+                    <div class="teacher-item"><span>الأستاذ جراح محمد</span> <span class="stage">الإعدادية والثانوية</span></div>
+                    <div class="teacher-item"><span>الأستاذ أحمد بدوي</span> <span class="stage">الابتدائية</span></div>
+                    <div class="teacher-item"><span>الأستاذة فاطمة أحمد</span> <span class="stage">الابتدائية</span></div>
+                    <div class="teacher-item"><span>الأستاذ إبراهيم عبد الحميد</span> <span class="stage">الإعدادية الأزهرية</span></div>
+                </div>
+
+                <!-- انجليزي -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-language"></i> اللغة الإنجليزية</div>
+                    <div class="teacher-item"><span>مستر أشرف عنتر</span> <span class="stage">الإعدادية والثانوية</span></div>
+                    <div class="teacher-item"><span>مس أمل أحمد</span> <span class="stage">الابتدائية</span></div>
+                    <div class="teacher-item"><span>مس ريم شعبان</span> <span class="stage">الابتدائية</span></div>
+                </div>
+
+                <!-- فرنساوي -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-language"></i> اللغة الفرنسية</div>
+                    <div class="teacher-item"><span>مسيو محمد أبوحسيبة</span> <span class="stage">الثانوية</span></div>
+                </div>
+
+                <!-- برمجة -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-code"></i> البرمجة</div>
+                    <div class="teacher-item"><span>مستر ياسر الدروي</span> <span class="stage">الثانوية</span></div>
+                </div>
+
+                <!-- رياضيات -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-calculator"></i> الرياضيات</div>
+                    <div class="teacher-item"><span>مستر محمود عزمي</span> <span class="stage">الابتدائية · الإعدادية · الثانوية</span></div>
+                </div>
+
+                <!-- دراسات -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-globe-africa"></i> الدراسات الاجتماعية</div>
+                    <div class="teacher-item"><span>مستر حماده شوقي</span> <span class="stage">الابتدائية · الإعدادية · الثانوية</span></div>
+                </div>
+
+                <!-- علوم -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-flask"></i> العلوم</div>
+                    <div class="teacher-item"><span>مستر محمود بهاء</span> <span class="stage">الإعدادية والثانوية</span></div>
+                    <div class="teacher-item"><span>مس سلمى طه</span> <span class="stage">الابتدائية</span></div>
+                </div>
+
+                <!-- المدير -->
+                <div class="contact-block">
+                    <div class="contact-row">
+                        <span class="label"><i class="fas fa-user-cog"></i> المدير: أ. سعد طه</span>
+                        <span style="font-weight:500; color:#0b2b5c;"><i class="fas fa-phone-alt"></i> 01092232184</span>
+                        <a href="https://wa.me/201092232184" target="_blank" style="text-decoration:none;">
+                            <button class="btn-chat"><i class="fab fa-whatsapp"></i> Chat</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =====  TAB 2: مركز أجيال ===== -->
+        <div class="tab-content" id="tabAgyal">
+            <div class="center-card" style="max-width:900px; margin:0 auto;">
+                <div class="card-header">
+                    <h3><i class="fas fa-seedling" style="color:#46a05c;"></i> مركز أجيال التعليمي</h3>
+                    <span class="badge-level">نخبة المعلمين</span>
+                </div>
+
+                <!-- انجليزي -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-language"></i> اللغة الإنجليزية</div>
+                    <div class="teacher-item"><span>مستر أشرف عنتر</span> <span class="stage">الإعدادية والثانوية</span></div>
+                    <div class="teacher-item"><span>مس أمل أحمد</span> <span class="stage">الابتدائية</span></div>
+                    <div class="teacher-item"><span>مس شيماء ممدوح</span> <span class="stage">الابتدائية</span></div>
+                </div>
+
+                <!-- عربي -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-book"></i> اللغة العربية</div>
+                    <div class="teacher-item"><span>الأستاذ جراح محمد</span> <span class="stage">الإعدادية والثانوية</span></div>
+                    <div class="teacher-item"><span>مستر أحمد بدوي</span> <span class="stage">الابتدائية</span></div>
+                    <div class="teacher-item"><span>مس سهام ماهر</span> <span class="stage">الابتدائية</span></div>
+                </div>
+
+                <!-- عربي أزهر -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-book"></i> اللغة العربية (أزهر)</div>
+                    <div class="teacher-item"><span>الأستاذ بكر الصياد</span> <span class="stage">الثانوية</span></div>
+                    <div class="teacher-item"><span>الأستاذ إبراهيم عبد الحميد</span> <span class="stage">الإعدادية</span></div>
+                </div>
+
+                <!-- فرنساوي -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-language"></i> اللغة الفرنسية</div>
+                    <div class="teacher-item"><span>مسيو محمد أبوحسيبة</span> <span class="stage">الثانوية</span></div>
+                </div>
+
+                <!-- برمجة -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-code"></i> البرمجة</div>
+                    <div class="teacher-item"><span>مستر ياسر الدروي</span> <span class="stage">الثانوية</span></div>
+                </div>
+
+                <!-- رياضيات -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-calculator"></i> الرياضيات</div>
+                    <div class="teacher-item"><span>مستر محمود جمال</span> <span class="stage">الإعدادية والثانوية</span></div>
+                    <div class="teacher-item"><span>مستر ناصر توفيق</span> <span class="stage">الابتدائية</span></div>
+                    <div class="teacher-item"><span>مس سهام ماهر</span> <span class="stage">الابتدائية</span></div>
+                </div>
+
+                <!-- علوم -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-flask"></i> العلوم</div>
+                    <div class="teacher-item"><span>مستر محمود بهاء</span> <span class="stage">الإعدادية والثانوية</span></div>
+                    <div class="teacher-item"><span>مس سلمى طه</span> <span class="stage">الابتدائية</span></div>
+                </div>
+
+                <!-- دراسات -->
+                <div class="teacher-subject">
+                    <div class="subject-name"><i class="fas fa-globe-africa"></i> الدراسات الاجتماعية</div>
+                    <div class="teacher-item"><span>مستر هشام بدر</span> <span class="stage">الإعدادية والثانوية</span></div>
+                    <div class="teacher-item"><span>مس رحاب عثمان</span> <span class="stage">الابتدائية</span></div>
+                </div>
+
+                <!-- المدير -->
+                <div class="contact-block">
+                    <div class="contact-row">
+                        <span class="label"><i class="fas fa-user-cog"></i> المدير: أ. سعد طه</span>
+                        <span style="font-weight:500; color:#0b2b5c;"><i class="fas fa-phone-alt"></i> 01092232184</span>
+                        <a href="https://wa.me/201092232184" target="_blank" style="text-decoration:none;">
+                            <button class="btn-chat"><i class="fab fa-whatsapp"></i> Chat</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =====  TAB 3: التواصل ===== -->
+        <div class="tab-content" id="tabContact">
+            <div style="background:white; border-radius:40px; padding:2rem; box-shadow:0 8px 30px rgba(0,0,0,0.03); max-width:700px; margin:0 auto;">
+                <h3 style="font-size:1.8rem; color:#0b2b5c; text-align:center;"><i class="fas fa-phone" style="color:#f5b042;"></i> قنوات التواصل</h3>
+
+                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; margin-top:25px;">
+                    <!-- المدير -->
+                    <div style="background:#f8faff; padding:1.5rem; border-radius:30px; text-align:center; border:1px solid #e4edf7;">
+                        <i class="fas fa-user-cog" style="font-size:2rem; color:#f5b042;"></i>
+                        <p style="font-weight:700; margin:8px 0;">المدير: أ. سعد طه</p>
+                        <p style="color:#1f3f6b;">📱 01092232184</p>
+                        <a href="https://wa.me/201092232184" target="_blank" style="text-decoration:none;">
+                            <button class="btn-chat" style="margin-top:10px; width:100%; justify-content:center;"><i class="fab fa-whatsapp"></i> واتساب</button>
+                        </a>
+                    </div>
+
+                    <!-- المطور -->
+                    <div style="background:#f5f9ff; padding:1.5rem; border-radius:30px; text-align:center; border:1px dashed #b2cbe5;">
+                        <i class="fas fa-code" style="font-size:2rem; color:#f5b042;"></i>
+                        <p style="font-weight:700; margin:8px 0;">المطور: أحمد سعد طه</p>
+                        <p style="color:#4a6a8a; font-size:0.95rem;"><i class="fas fa-clock"></i> لم يحدد طريقة تواصل</p>
+                        <button class="btn-chat" disabled style="margin-top:10px; width:100%; justify-content:center; background:#b8cce0;"><i class="fas fa-hourglass-half"></i> قريباً</button>
+                    </div>
+                </div>
+
+                <!-- البريد الإلكتروني الجديد -->
+                <div style="margin-top:25px; background:#eaf1fc; padding:0.8rem 1.8rem; border-radius:60px; text-align:center;">
+                    <i class="fas fa-envelope" style="color:#f5b042;"></i> للتواصل: <strong>as78017934@gmail.com</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- =====  قوائم سريعة ===== -->
+        <div class="quick-grid">
+            <div class="quick-item"><i class="fas fa-book-open"></i> جميع المواد</div>
+            <div class="quick-item"><i class="fas fa-trophy"></i> نخبة المعلمين</div>
+            <div class="quick-item"><i class="fas fa-calendar-alt"></i> الجداول</div>
+            <div class="quick-item"><i class="fas fa-laptop"></i> منصة تعليمية</div>
+            <div class="quick-item"><i class="fas fa-star"></i> تقييمات</div>
+            <div class="quick-item"><i class="fas fa-shield-alt"></i> أمان كامل</div>
+        </div>
+
+        <!-- =====  فوتر ===== -->
+        <div class="footer-glow">
+            <i class="fas fa-crown"></i> Education Center · مركز المجد &amp; مركز أجيال <i class="fas fa-crown"></i>
+        </div>
+
+    </div>
+
+    <!-- =====  نافذة تسجيل الدخول ===== -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-card">
+            <button class="close-login" id="closeLoginBtn"><i class="fas fa-times"></i></button>
+            <h3><i class="fas fa-user-graduate" style="color:#f5b042;"></i> تسجيل الدخول</h3>
+            <p class="sub-login">سجل بياناتك وسنرد عليك خلال 24 ساعة</p>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> الاسم الكامل</label>
+                    <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> رقم الهاتف</label>
+                    <input type="tel" id="phoneNumber" placeholder="أدخل رقم هاتفك" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+                    <input type="email" id="emailAddress" placeholder="أدخل بريدك الإلكتروني" required />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-comment"></i> رسالتك</label>
+                    <input type="text" id="userMessage" placeholder="اكتب رسالتك (اختياري)" />
+                </div>
+                <button type="submit" class="btn-login"><i class="fas fa-paper-plane"></i> إرسال</button>
+            </form>
+
+            <div class="login-status" id="loginStatus"></div>
+        </div>
+    </div>
+
+    <!-- =====  رسالة نجاح ===== -->
+    <div class="toast-message" id="toastMessage">
+        <i class="fas fa-check-circle"></i> تم التسجيل بنجاح! سيتم الرد قريباً
+    </div>
+
+    <script>
+        (function() {
+            // =====  إغلاق النافذة المنبثقة =====
+            const overlay = document.getElementById('welcomeOverlay');
+            const mainContent = document.getElementById('mainContent');
+            const closeBtn = document.getElementById('closeWelcomeBtn');
+
+            function dismissWelcome() {
+                overlay.style.display = 'none';
+                mainContent.style.display = 'block';
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', dismissWelcome);
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) dismissWelcome();
+            });
+
+            document.body.style.overflow = 'hidden';
+            const observer = new MutationObserver(() => {
+                if (overlay.style.display === 'none') {
+                    document.body.style.overflow = '';
+                    observer.disconnect();
+                }
+            });
+            observer.observe(overlay, { attributes: true, attributeFilter: ['style'] });
+
+            // =====  نظام القوائم =====
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = {
+                tabMajd: document.getElementById('tabMajd'),
+                tabAgyal: document.getElementById('tabAgyal'),
+                tabContact: document.getElementById('tabContact')
+            };
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    Object.values(contents).forEach(c => c.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.dataset.tab;
+                    if (contents[targetId]) {
+                        contents[targetId].classList.add('active');
+                    }
+                });
+            });
+
+            // =====  نافذة تسجيل الدخول =====
+            const loginOverlay = document.getElementById('loginOverlay');
+            const openLoginBtn = document.getElementById('openLoginBtn');
+            const closeLoginBtn = document.getElementById('closeLoginBtn');
+            const loginForm = document.getElementById('loginForm');
+            const loginStatus = document.getElementById('loginStatus');
+            const toastMessage = document.getElementById('toastMessage');
+
+            function openLogin() {
+                loginOverlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                loginStatus.textContent = '';
+            }
+
+            function closeLogin() {
+                loginOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+
+            openLoginBtn.addEventListener('click', openLogin);
+            closeLoginBtn.addEventListener('click', closeLogin);
+            loginOverlay.addEventListener('click', function(e) {
+                if (e.target === loginOverlay) closeLogin();
+            });
+
+            // =====  ربط بجوجل شيت =====
+            // ✅ تم استبدال البريد الإلكتروني بـ as78017934@gmail.com
+            const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwTw39-Y2UE6rLUFEZ2_CeZht4zwXJB3mjFJMMkzebQJ9TPnjnbIqW3PYzkthF07RVA/exec';
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const fullName = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phoneNumber').value.trim();
+                const email = document.getElementById('emailAddress').value.trim();
+                const message = document.getElementById('userMessage').value.trim() || 'لا توجد رسالة';
+
+                if (!fullName || !phone || !email) {
+                    loginStatus.textContent = '⚠️ يرجى ملء جميع الحقول المطلوبة';
+                    loginStatus.style.color = '#d9534f';
+                    return;
+                }
+
+                // تعطيل الزر أثناء الإرسال
+                const submitBtn = loginForm.querySelector('.btn-login');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+                loginStatus.textContent = '';
+
+                // إرسال البيانات إلى جوجل شيت
+                fetch(SHEET_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: fullName,
+                            phone: phone,
+                            email: email,
+                            message: message,
+                            timestamp: new Date().toLocaleString('ar-EG')
+                        })
+                    })
+                    .then(() => {
+                        // no-cors لا يعطي استجابة، لكن البيانات تصل
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال';
+
+                        // عرض رسالة نجاح
+                        loginStatus.textContent = '✅ تم التسجيل بنجاح! سيتم الرد خلال 24 ساعة';
+                        loginStatus.style.color = '#1f8b4c';
+
+                        // عرض التوست
+                        toastMessage.style.display = 'block';
+                        setTimeout(() => {
+                            toastMessage.style.display = 'none';
+                        }, 4000);
+
+                        // تنظيف النموذج بعد 2 ثانية
+                        setTimeout(() => {
+                            loginForm.reset();
+                            loginStatus.textContent = '';
+                            closeLogin();
+                        }, 2500);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال';
+                        loginStatus.textContent = '❌ حدث خطأ، حاول مرة أخرى';
+                        loginStatus.style.color = '#d9534f';
+                    });
+            });
+
+            // =====  إغلاق التسجيل بالـ Escape =====
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && loginOverlay.classList.contains('show')) {
+                    closeLogin();
+                }
+            });
+
+            console.log('✅ Education Center · مع تسجيل دخول وجوجل شيت');
+            console.log('📧 البريد الإلكتروني: as78017934@gmail.com');
+        })();
+    </script>
+
+</body>
+</html>
